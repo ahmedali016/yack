@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <!-- CSS
+    ================================================== -->
+    <link href="~/Content/default.css" rel="stylesheet" />
+    <link href="~/Content/layout.css" rel="stylesheet" />
+    <link href="~/Content/media-queries.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/css")*@
+    <!-- Script
+    ================================================== -->
+    <script src="~/Scripts/modernizr.js"></script>
+
+    @* @Scripts.Render("~/bundles/modernizr")*@
+
+</head>
+<body>
+
+    <!-- Header
+    ================================================== -->
+    <header id="top">
+
+        <div class="row">
+
+            <div class="header-content twelve columns">
+
+                <h1 id="logo-text"><a href="../../" title=""> Simple Blog.</a></h1>
+                <p id="intro">Put your awesome slogan here...</p>
+
+            </div>
+
+        </div>
+
+        <nav id="nav-wrap">
+
+            <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show Menu</a>
+            <a class="mobile-btn" href="#" title="Hide navigation">Hide Menu</a>
+
+            <div class="row">
+
+                <ul id="nav" class="nav">
+                    <li class="current">@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Category", "category", "Admin")</li>
+                        <li>@Html.ActionLink("Articls", "Index", "Admin")</li>
+                    }
+                </ul> <!-- end #nav -->
+                @Html.Partial("_LoginPartial")
+            </div>
+
+        </nav> <!-- end #nav-wrap -->
+
+    </header> <!-- Header End -->
+    <!-- Content
+    ================================================== -->
+    <div id="content-wrap">
+
+        <div class="row">
+
+            <div id="main" class="eight columns">
+
+                @RenderBody()
+
+            </div> <!-- end main -->
+
+            <div id="sidebar" class="four columns">
+
+
+
+
+
+
+
+
+            </div> <!-- end sidebar -->
+
+        </div> <!-- end row -->
+
+    </div> <!-- end content-wrap -->
+    <!-- Footer
+    ================================================== -->
+    <footer>
+
+        <div class="row">
+
+
+
+            <p class="copyright">&copy; Copyright 2014 Keep It Simple. &nbsp; Design by <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a>.</p>
+
+        </div> <!-- End row -->
+
+        <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-chevron-up"></i></a></div>
+
+    </footer> <!-- End Footer-->
+    <!-- Java Script
+    ================================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="~/Scripts/jquery-1.10.2.min.js"><\/script>')</script>
+    <script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
