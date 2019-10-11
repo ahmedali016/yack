@@ -1,0 +1,16 @@
+﻿@model IEnumerable<yackeenTask.ViewModels.viewCategory>
+
+
+
+    <ul>
+        @foreach (var item in Model)
+        {
+
+            <li>
+                <a href="../../home/blog/@item.categoryId"> @Html.DisplayFor(modelItem => item.categoryName)</a>
+            </li>
+
+
+        }
+    </ul>
+
